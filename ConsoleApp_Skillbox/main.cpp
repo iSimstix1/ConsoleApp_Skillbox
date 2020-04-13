@@ -3,15 +3,19 @@
 
 void Even_OR_Uneven_Numbers(const int N) {
 
-	// Event numbers
-	if (N % 2 == 0) {
-		for (int i = 0; i <= N; i += 2) {
-			std::cout << i << " ";
+	// Event numbers with use one loop;
+	for (int i = 0; i <= N; i++)
+	{
+		// Event numbers;
+		if (N % 2 == 0) {
+			{
+				std::cout << i << " ";
+				i++;
+			}
 		}
-	}
-	// Uneven numbers
-	else if (N % 1 == 0) {
-		for (int i = 1; i <= N; i += 2) {
+		// Unevent numbers;
+		else if (N % 1 == 0) {
+			i += 1;
 			std::cout << i << " ";
 		}
 	}
@@ -19,7 +23,8 @@ void Even_OR_Uneven_Numbers(const int N) {
 
 int main() {
 
-	// TASK 1
+	// Decision 1;
+	std::cout << "Decision 1: " << std::endl;
 	const int Number = 20;
 	std::cout << "Even numbers: ";
 	for (int i = 0; i <= Number; i++) {
@@ -28,14 +33,14 @@ int main() {
 		}
 	}
 
-	// TASK 2
-
+	// Decision 2;
+	std::cout << "\n\nDecision 2: " << std::endl;
 	// If const number is even
-	std::cout << "\nEven numbers (function: Even_OR_Uneven_Numbers): ";
-	Even_OR_Uneven_Numbers(20);
+	std::cout << "Even numbers (function: Even_OR_Uneven_Numbers): ";
+	Even_OR_Uneven_Numbers(16);
 	// If const number is uneven
 	std::cout << "\nUneven numbers (function: Even_OR_Uneven_Numbers): ";
-	Even_OR_Uneven_Numbers(21);
+	Even_OR_Uneven_Numbers(17);
 
 	std::cout << std::endl;
 
