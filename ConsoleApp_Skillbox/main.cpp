@@ -9,12 +9,8 @@ void Even_OR_Uneven_Numbers(const int N)
 	std::cout << "Enter your option: ";
 	std::cin >> b;
 
-	if (b) {
-		i = 0; 
-}
-	else if (!(b)) {
-		i;
-	}
+	if (b) { i = 0; }
+	else if (!(b)) { i; }
 
 	for (; i <= N; i += 2) { std::cout << i << std::endl; }
 }
