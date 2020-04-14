@@ -6,7 +6,7 @@ void Even_OR_Uneven_Numbers(const int N)
 	bool b = true;
 	int i = 0;
 
-	std::cout << "Enter you option: ";
+	std::cout << "Enter your option: ";
 	std::cin >> b;
 
 	if (b) {
