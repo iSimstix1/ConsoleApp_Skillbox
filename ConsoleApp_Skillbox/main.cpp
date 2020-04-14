@@ -4,18 +4,19 @@
 void Even_OR_Uneven_Numbers(const int N)
 {
 	bool b = true;
-	int i = 0; // Changes depending on the condition
+	int i = 1; // Changes depending on the condition
 
 	std::cout << "Enter your option: ";
 	std::cin >> b;
 
 	if (b) {
-		for (; i <= N; i += 2) { std::cout << i << std::endl; }
-	}
+		i = 0; 
+}
 	else if (!(b)) {
-		int i = 1;
-		for (; i <= N; i += 2) { std::cout << i << std::endl; }
+		i;
 	}
+
+	for (; i <= N; i += 2) { std::cout << i << std::endl; }
 }
 
 int main() 
