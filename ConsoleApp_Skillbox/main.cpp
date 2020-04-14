@@ -4,7 +4,7 @@
 void Even_OR_Uneven_Numbers(const int N)
 {
 	bool b = true;
-	int i = 0;
+	int i = 0; // Changes depending on the condition
 
 	std::cout << "Enter your option: ";
 	std::cin >> b;
