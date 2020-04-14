@@ -3,7 +3,7 @@
 
 void Even_AND_Uneven_Numbers(const int N) 
 {
-	// Without loop
+	// Without condition
 	for (int i = 0; i <= N; i++) {
 		std::cout << i++ << " | " << std::endl;
 		std::cout << i << " | ";
