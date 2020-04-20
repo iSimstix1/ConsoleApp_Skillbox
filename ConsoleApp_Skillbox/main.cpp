@@ -3,15 +3,14 @@
 
 void Even_OR_Uneven_Numbers(const int N)
 {
-	bool b = true;
+	int b = 0;
 	int i = 1; // Changes depending on the condition
 
 	std::cout << "Enter your option: ";
 	std::cin >> b;
 
-	if (b) { i = 0; }
-	else if (!(b)) { i; }
-
+	if (b == 1) { i = 0; }
+	else if (b == 0) {}
 	for (; i <= N; i += 2) { std::cout << i << std::endl; }
 }
 
