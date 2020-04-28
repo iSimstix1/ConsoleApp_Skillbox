@@ -5,31 +5,34 @@
 int main()
 {
 
-	int TheCurrentNumberOfCalendar = 28;
-	int SumOfArraysInARow = 0;
+	int theCurrentNumberOfCalendar = 28;
+	int sumOfArraysInARow = 0;
+	bool checkCondition = true;
 
-	const int size_1 = 3;
-	const int size_2 = 3;
-	int array[size_1][size_2] = { 
+	const int sizeArray = 3;
+
+	int array[sizeArray][sizeArray]= {
 		{  1, 2, 3 }, 
-		{  2, 4, 6 },
-		{  3, 6, 9 }
+		{  4, 5, 6 },
+		{  7, 8, 9 }
 	};
 
+	for (int i = 0; i < sizeArray; i++) {
+		for (int j = 0; j < sizeArray; j++) {
 
-	for (int i = 0; i < size_1; i++) {
-		for (int j = 0; j < size_2; j++) {
-
+			array[i][j] = i + j;
 			std::cout << array[i][j] << " ";
 
-			int tmp = TheCurrentNumberOfCalendar % 11;
-			
+			int tmp = theCurrentNumberOfCalendar % sizeArray;
+			sumOfArraysInARow = array[i][j] + array[i][j];
+
 			if (array[i][j] == tmp) {
-				SumOfArraysInARow = array[i][j] + array[i][j];
+				checkCondition = true;
 			}
 		}
-		if (SumOfArraysInARow) {
-			std::cout << "| Amount on line: " << SumOfArraysInARow;
+		if (checkCondition == true) {
+			std::cout << "| Amount on line: " << sumOfArraysInARow;
+			checkCondition = false;
 		}
 		std::cout << std::endl;
 	}
