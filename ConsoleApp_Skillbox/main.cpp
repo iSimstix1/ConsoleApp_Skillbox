@@ -1,35 +1,37 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 
-void Even_OR_Uneven_Numbers(const int N)
+int main()
 {
-	int b = 0;
-	int i = 1; // Changes depending on the condition
 
-	std::cout << "Enter your option: ";
-	std::cin >> b;
+	int TheCurrentNumberOfCalendar = 28;
+	int SumOfArraysInARow = 0;
 
-	if (b == 1) { i = 0; }
-	else if (b == 0) {}
-	for (; i <= N; i += 2) { std::cout << i << std::endl; }
-}
+	const int size_1 = 3;
+	const int size_2 = 3;
+	int array[size_1][size_2] = { 
+		{  1, 2, 3 }, 
+		{  2, 4, 6 },
+		{  3, 6, 9 }
+	};
 
-int main() 
-{
-	const int Number = 20;
 
-	// Decision 1;
-	std::cout << "Decision 1: " << std::endl;
-	std::cout << "Even numbers: ";
-	for (int i = 0; i <= Number; i += 2) { std::cout << i << " "; }
+	for (int i = 0; i < size_1; i++) {
+		for (int j = 0; j < size_2; j++) {
 
-	// Decision 2;
-	std::cout << "\n\nDecision 2: " << std::endl;
-	
-	std::cout << "Even = 1 | Uneven = 0" << std::endl;
-	Even_OR_Uneven_Numbers(20);
+			std::cout << array[i][j] << " ";
 
-	std::cout << std::endl;
-
+			int tmp = TheCurrentNumberOfCalendar % 11;
+			
+			if (array[i][j] == tmp) {
+				SumOfArraysInARow = array[i][j] + array[i][j];
+			}
+		}
+		if (SumOfArraysInARow) {
+			std::cout << "| Amount on line: " << SumOfArraysInARow;
+		}
+		std::cout << std::endl;
+	}
 	return 0;
 }
