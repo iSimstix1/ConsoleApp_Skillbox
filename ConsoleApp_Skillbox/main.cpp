@@ -7,6 +7,7 @@ int main()
 
 	int theCurrentNumberOfCalendar = 28;
 	int sumOfArraysInARow = 0;
+	int accumulatedAmount = 0;
 	bool checkCondition = true;
 
 	const int sizeArray = 3;
@@ -17,7 +18,7 @@ int main()
 		{  7, 8, 9 }
 	};
 
-	int CheckingTheEquation = theCurrentNumberOfCalendar % sizeArray;
+	int CheckingTheEquation = theCurrentNumberOfCalendar % 9;
 	
 	for (int i = 0; i < sizeArray; i++) {
 		for (int j = 0; j < sizeArray; j++) {
@@ -25,18 +26,19 @@ int main()
 			array[i][j] = i + j;
 			std::cout << array[i][j] << " ";
 
-			sumOfArraysInARow = array[i][j] + array[i][j];
+			accumulatedAmount = array[i][j] + array[i][j];
 
 			if (array[i][j] == CheckingTheEquation) {
+				sumOfArraysInARow = accumulatedAmount + array[i][j];
 				checkCondition == true;
 			}
 		}
 
 		if (checkCondition == true) {
 			std::cout << "| Amount on line: " << sumOfArraysInARow;
+			checkCondition = false;
 		}
 		std::cout << std::endl;
-		checkCondition = false;
 	}
 	return 0;
 }
