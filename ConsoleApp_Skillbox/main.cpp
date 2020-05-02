@@ -21,7 +21,7 @@ int main()
 			sumOfArraysInARow = array[i][j] + array[i][j];
 
 			if (array[i][j] == CheckingTheEquation) {
-				sumOfArraysInARow = sumOfArraysInARow + array[i][j];
+				sumOfArraysInARow += array[i][j];
 				checkCondition = true;
 			}
 		}
