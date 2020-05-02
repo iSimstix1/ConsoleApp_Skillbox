@@ -4,7 +4,7 @@
 
 int main()
 {
-	int theCurrentNumberOfCalendar = 2;
+	int theCurrentNumberOfCalendar = 4;
 	int sumOfArraysInARow = 0;
 	bool checkCondition = true;
 
@@ -12,15 +12,14 @@ int main()
 	int array[sizeArray][sizeArray] { { } };
 
 	int CheckingTheEquation = theCurrentNumberOfCalendar % sizeArray;
+
 	for (int i = 0; i < sizeArray; i++) {
 		for (int j = 0; j < sizeArray; j++) {
 
 			array[i][j] = i + j;
 			std::cout << array[i][j] << " ";
 
-			sumOfArraysInARow = array[i][j] + array[i][j];
-
-			if (array[i][j] == CheckingTheEquation) {
+			if (i == CheckingTheEquation) {
 				sumOfArraysInARow += array[i][j];
 				checkCondition = true;
 			}
