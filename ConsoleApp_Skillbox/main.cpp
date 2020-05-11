@@ -1,69 +1,87 @@
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <cmath>
+#include<iostream>
 
-// Task 1
-class Car {
+template<typename _top>
+class Stack
+{
 private:
-
-	double maxSpeedCar;
-	double weightCar;
-	std::string colorCar;
+    int count;
+    _top* A;
+    int MaxCount;
 
 public:
 
-	void SetCharacteristicCar(double setMaxSpeedCar, double setWeightCar, std::string setColorCar) {
-		maxSpeedCar = setMaxSpeedCar;
-		weightCar = setWeightCar;
-		colorCar = setColorCar;
-	}
-	void GetCharacteristicCar() {
-		std::cout << "Weight car: " << weightCar << std::endl;
-		std::cout << "Maximum speed car: " << maxSpeedCar << std::endl;
-		std::cout << "Color car: " << colorCar << std::endl;
-	}
-};
+    Stack(const int MaxCount);
+    ~Stack();
+    void push(_top x);
+    _top pop();
 
-// Task 2
-class Vector {
-private:
-
-	double x;
-	double y;
-	double z;
-
-	double LengthVector;
-
-public:
-	Vector() : x(3), y(4), z(0), LengthVector(0) {}
-	Vector(double _x, double _y, double _z, double _LengthVector) : x(_x), y(_y), z(_z), LengthVector(_LengthVector){}
-
-	void Show() {
-		std::cout << std::endl;
-		std::cout << "x = " << x << std::endl;
-		std::cout << "y = " << y << std::endl;
-		std::cout << "z = " << z << std::endl;
-	}
-
-	// Get vector by module
-	double Length() {
-		LengthVector = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
-		return LengthVector;
-	}
+    bool is_empty();
+    bool is_full();
 
 };
 
-int main() {
-	Car instanceCar;
-	instanceCar.SetCharacteristicCar(170, 1550, "White");
-	instanceCar.GetCharacteristicCar();
+template <typename _top>
+Stack<_top>::Stack(const int MaxCount)
+{
+    count = 0;
+    A = new _top[MaxCount];
+    this->MaxCount = MaxCount;
+}
 
-	Vector instanceVector;
-	instanceVector.Show();
-	std::cout << "\nVector length (by module) = " << instanceVector.Length();
-	
+template<typename _top>
+Stack<_top>::~Stack()
+{
+    delete[] A;
+}
 
-	std::cout << std::endl;
-	return 0;
+template<typename _top>
+void Stack<_top>::push(_top x)
+{
+    if (count < MaxCount)
+        A[count++] = x;
+}
+
+template<typename _top>
+_top Stack<_top>::pop()
+{
+    if (count > 0)
+        return A[--count];
+    else
+    {
+        std::cout << "Stack is empty";
+        return 0;
+    }
+
+}
+
+template<typename _top>
+bool Stack<_top>::is_empty()
+{
+    if (count <= 0)
+        return true;
+    else return false;
+}
+
+template<typename _top>
+bool Stack<_top>::is_full()
+{
+    if (count == MaxCount)
+        return true;
+    else return false;
+}
+
+int main()
+{
+    Stack<int> st(200);
+
+    for (int i = 0; !st.is_full(); i++)
+    {
+        st.push(i);
+    }
+
+    while (!st.is_empty())
+        std::cout << st.pop() << std::endl;
+
+    system("pause");
+    return 0;
 }
