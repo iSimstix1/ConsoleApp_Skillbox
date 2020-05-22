@@ -1,87 +1,50 @@
 #include<iostream>
 
-template<typename _top>
-class Stack
-{
-private:
-    int count;
-    _top* A;
-    int MaxCount;
+class Animal {
 
 public:
 
-    Stack(const int MaxCount);
-    ~Stack();
-    void push(_top x);
-    _top pop();
-
-    bool is_empty();
-    bool is_full();
-
+    virtual void Voice() { std::cout << "Animals make sounds:\n" << std::endl; };
+    
 };
 
-template <typename _top>
-Stack<_top>::Stack(const int MaxCount)
-{
-    count = 0;
-    A = new _top[MaxCount];
-    this->MaxCount = MaxCount;
-}
+class  Dog : public Animal{
 
-template<typename _top>
-Stack<_top>::~Stack()
-{
-    delete[] A;
-}
-
-template<typename _top>
-void Stack<_top>::push(_top x)
-{
-    if (count < MaxCount)
-        A[count++] = x;
-}
-
-template<typename _top>
-_top Stack<_top>::pop()
-{
-    if (count > 0)
-        return A[--count];
-    else
-    {
-        std::cout << "Stack is empty";
-        return 0;
+public:
+    void Voice() override {
+        std::cout << "Dog: Woof!\n";
     }
+};
 
-}
+class Cat : public Animal{
 
-template<typename _top>
-bool Stack<_top>::is_empty()
-{
-    if (count <= 0)
-        return true;
-    else return false;
-}
+public:
+    void Voice() override {
+        std::cout << "Cat: Meow!\n";
+    }
+};
 
-template<typename _top>
-bool Stack<_top>::is_full()
-{
-    if (count == MaxCount)
-        return true;
-    else return false;
-}
+class Cow : public Animal{
+
+public:
+    void Voice() override {
+        std::cout << "Cow: Mooo!\n";
+    }
+};
 
 int main()
 {
-    Stack<int> st(200);
 
-    for (int i = 0; !st.is_full(); i++)
-    {
-        st.push(i);
+    Animal* object[4];
+
+    object[0] = new Animal;
+    object[1] = new Cat;
+    object[2] = new Dog;
+    object[3] = new Cow;
+
+    for (int i = 0; i < 4; i++) {
+        object[i]->Voice();
     }
 
-    while (!st.is_empty())
-        std::cout << st.pop() << std::endl;
-
-    system("pause");
     return 0;
 }
